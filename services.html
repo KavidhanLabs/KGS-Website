@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>xyz's Global Solutions — Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --grad-start: #1e40af;
+        --grad-mid: #38bdf8;
+        --grad-end: #0ea5e9;
+        --bgs-gradient: linear-gradient(
+          135deg,
+          var(--grad-start) 0%,
+          var(--grad-mid) 55%,
+          var(--grad-end) 100%
+        );
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      body {
+        margin: 0;
+        font-family: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+        color: #1f1b2e;
+        background: #ffffff;
+        overflow-x: hidden;
+      }
+      html::-webkit-scrollbar {
+        display: none;
+      }
+      .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+      section {
+        padding: 100px 0;
+      }
+      .eyebrow {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        color: var(--grad-mid, #38bdf8);
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      h2 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 30px;
+        margin: 0 0 14px;
+        font-weight: 700;
+      }
+      .sub {
+        color: #6b6580;
+        font-size: 15px;
+        max-width: 640px;
+        margin: 0 0 40px;
+        line-height: 1.6;
+      }
+      .btn-grad {
+        display: inline-block;
+        background: var(--bgs-gradient);
+        color: #fff;
+        padding: 13px 26px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        border: none;
+        cursor: pointer;
+      }
+      .btn-outline {
+        display: inline-block;
+        padding: 13px 26px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        border: 1.5px solid #ddd;
+        color: #1f1b2e;
+      }
+
+      /* BANNER (shared with About / Contact / FAQ / Process page) */
+      .about-banner {
+        position: relative;
+        background: #eaf3fb;
+        padding: 90px 0 70px;
+        overflow: hidden;
+        text-align: center;
+      }
+      .about-banner .hero-bg-placeholder {
+        position: absolute;
+        inset: 0;
+        background:
+          url("/images/background.jfif") center/cover no-repeat,
+          #dce9f5;
+      }
+      .about-banner .hero-bg-placeholder::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.82);
+      }
+      .about-banner .wrap {
+        position: relative;
+      }
+      .breadcrumb {
+        font-size: 13px;
+        font-weight: 600;
+        color: #6b6580;
+        margin-bottom: 16px;
+      }
+      .breadcrumb a {
+        color: var(--grad-mid, #38bdf8);
+        text-decoration: none;
+      }
+      .breadcrumb .sep {
+        margin: 0 6px;
+        color: #c7cfd9;
+      }
+      .about-banner h1 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 42px;
+        font-weight: 800;
+        color: #14101c;
+        margin: 0 0 12px;
+        letter-spacing: -0.5px;
+      }
+      .about-banner p {
+        color: #6b6580;
+        font-size: 15px;
+        max-width: 520px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+      @media (max-width: 600px) {
+        .about-banner h1 {
+          font-size: 30px;
+        }
+      }
+
+      /* SERVICE CARDS */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .service-card {
+        border: 1.5px solid #eee7f5;
+        border-radius: 14px;
+        padding: 28px 24px;
+        background: #fff;
+        text-decoration: none;
+        display: block;
+        color: inherit;
+        transition:
+          border-color 0.2s,
+          background 0.2s,
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .service-card:hover {
+        border-color: var(--grad-mid, #38bdf8);
+        background: #eaf7fe;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(56, 189, 248, 0.15);
+      }
+      .service-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
+        background: var(--bgs-gradient);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        margin-bottom: 16px;
+      }
+      .service-card h4 {
+        font-family: "Space Grotesk", sans-serif;
+        margin: 0 0 8px;
+        font-size: 16px;
+      }
+      .service-card p {
+        margin: 0 0 4px;
+        font-size: 13.5px;
+        color: #6b6580;
+        line-height: 1.6;
+      }
+      .service-card .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 14px;
+      }
+      .service-card .tag {
+        font-size: 11.5px;
+        font-weight: 600;
+        color: #4a4560;
+        background: #f4f2fa;
+        border-radius: 999px;
+        padding: 4px 10px;
+      }
+      .service-card .link-label {
+        display: inline-block;
+        margin-top: 14px;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--grad-mid, #38bdf8);
+      }
+
+      /* WHY / PRINCIPLES GRID (dark section) */
+      .dark-section {
+        background: #14101c;
+        border-radius: 24px;
+        margin: 0 32px;
+      }
+      .dark-section h2 {
+        color: #fff;
+      }
+      .dark-section .sub {
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .why-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .dark-section .why-card h4 {
+        color: #fff;
+      }
+      .dark-section .why-card p {
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .dark-section .why-card .num {
+        color: #fff;
+        opacity: 0.85;
+      }
+      .why-card {
+        padding: 4px;
+      }
+      .why-card .num {
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .why-card h4 {
+        font-family: "Space Grotesk", sans-serif;
+        margin: 0 0 8px;
+        font-size: 16px;
+      }
+      .why-card p {
+        margin: 0;
+        font-size: 13.5px;
+        line-height: 1.6;
+      }
+
+      /* Scroll-reveal animation (shared) */
+      .reveal {
+        opacity: 0;
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .reveal.from-left {
+        transform: translateX(-40px);
+      }
+      .reveal.from-right {
+        transform: translateX(40px);
+      }
+      .reveal.from-top {
+        transform: translateY(-40px);
+      }
+      .reveal.from-bottom {
+        transform: translateY(40px);
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+
+      .final-cta {
+        background: var(--bgs-gradient);
+        border-radius: 20px;
+        margin: 0 32px;
+        padding: 56px 40px;
+        text-align: center;
+        color: #fff;
+      }
+      .final-cta h2 {
+        color: #fff;
+      }
+      .final-cta p {
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 500px;
+        margin: 0 auto 28px;
+      }
+      .final-cta .btn-white {
+        background: #fff;
+        color: #1f1b2e;
+        padding: 13px 26px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        display: inline-block;
+      }
+
+      @media (max-width: 900px) {
+        .services-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .why-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="site-header"></div>
+
+    <main>
+      <!-- BANNER -->
+      <section class="about-banner">
+        <div class="hero-bg-placeholder"></div>
+        <div class="wrap">
+          <div
+            class="heading-group"
+            style="display: flex; flex-direction: column; align-items: center"
+          >
+            <h1 class="reveal from-bottom">Our Services</h1>
+            <p class="reveal from-bottom">
+              [Placeholder] Whatever platform your users are on, we build for it
+              — and if it doesn't fit a neat category, we'll still solve it.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES GRID -->
+      <section class="wrap" style="padding-top: 32px; padding-bottom: 60px">
+        <div class="heading-group" style="text-align: center">
+          <div class="eyebrow reveal from-bottom">What We Build</div>
+          <h2 class="reveal from-bottom">Software For Every Platform</h2>
+          <p
+            class="sub reveal from-bottom"
+            style="margin-left: auto; margin-right: auto; text-align: center"
+          >
+            [Placeholder] From websites to native mobile and desktop apps —
+            here's where we can help.
+          </p>
+        </div>
+        <div class="services-grid">
+          <a
+            href="contact.html#lead-form"
+            class="service-card reveal from-bottom"
+          >
+            <div class="service-icon">🌐</div>
+            <h4>Website Development</h4>
+            <p>
+              [Placeholder] Fast, responsive websites built to convert — from
+              marketing sites to full web platforms.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Marketing Sites</span>
+              <span class="tag">Web Apps</span>
+              <span class="tag">E-commerce</span>
+            </div>
+            <span class="link-label">Get a quote →</span>
+          </a>
+
+          <a
+            href="contact.html#lead-form"
+            class="service-card reveal from-bottom"
+          >
+            <div class="service-icon">🧩</div>
+            <h4>Application Development</h4>
+            <p>
+              [Placeholder] Custom software built around your workflow —
+              tailored, scalable, and yours to own.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Custom Software</span>
+              <span class="tag">APIs</span>
+              <span class="tag">Integrations</span>
+            </div>
+            <span class="link-label">Get a quote →</span>
+          </a>
+
+          <a
+            href="contact.html#lead-form"
+            class="service-card reveal from-bottom"
+          >
+            <div class="service-icon">📱</div>
+            <h4>iOS Development</h4>
+            <p>
+              [Placeholder] Native and cross-platform apps built for iPhone and
+              iPad, ready for the App Store.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Swift</span>
+              <span class="tag">App Store</span>
+              <span class="tag">iPad</span>
+            </div>
+            <span class="link-label">Get a quote →</span>
+          </a>
+
+          <a
+            href="contact.html#lead-form"
+            class="service-card reveal from-bottom"
+          >
+            <div class="service-icon">🤖</div>
+            <h4>Android Development</h4>
+            <p>
+              [Placeholder] Reliable, well-tested apps for the Android
+              ecosystem, built to reach the widest audience.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Kotlin</span>
+              <span class="tag">Play Store</span>
+              <span class="tag">Tablets</span>
+            </div>
+            <span class="link-label">Get a quote →</span>
+          </a>
+
+          <a
+            href="contact.html#lead-form"
+            class="service-card reveal from-bottom"
+          >
+            <div class="service-icon">🖥️</div>
+            <h4>Windows Development</h4>
+            <p>
+              [Placeholder] Desktop applications built for Windows — from
+              internal tools to full commercial products.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Desktop Apps</span>
+              <span class="tag">Internal Tools</span>
+              <span class="tag">Enterprise</span>
+            </div>
+            <span class="link-label">Get a quote →</span>
+          </a>
+
+          <a
+            href="contact.html#lead-form"
+            class="service-card reveal from-bottom"
+          >
+            <div class="service-icon">💡</div>
+            <h4>Problem Solving</h4>
+            <p>
+              [Placeholder] Not sure which category your problem fits? Bring it
+              to us — we'll figure out the right solution, simply.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Consulting</span>
+              <span class="tag">Automation</span>
+              <span class="tag">Custom Fit</span>
+            </div>
+            <span class="link-label">Get a quote →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- WHY CHOOSE US (dark section) -->
+      <section class="dark-section">
+        <div class="wrap">
+          <div class="heading-group" style="text-align: center">
+            <div class="eyebrow reveal from-bottom">Why Choose Us</div>
+            <h2 class="reveal from-bottom">One Team, Every Platform</h2>
+            <p
+              class="sub reveal from-bottom"
+              style="margin-left: auto; margin-right: auto; text-align: center"
+            >
+              [Placeholder] You don't need five different vendors for five
+              different platforms — we build across all of them.
+            </p>
+          </div>
+          <div class="why-grid">
+            <div class="why-card reveal from-bottom">
+              <div class="num">01</div>
+              <h4>Full-Stack Coverage</h4>
+              <p>
+                [Placeholder] Web, mobile, and desktop — all built and
+                maintained by the same team, end to end.
+              </p>
+            </div>
+            <div class="why-card reveal from-bottom">
+              <div class="num">02</div>
+              <h4>No Problem Too Unusual</h4>
+              <p>
+                [Placeholder] If it doesn't fit a standard category, we'll still
+                find a practical way to build it.
+              </p>
+            </div>
+            <div class="why-card reveal from-bottom">
+              <div class="num">03</div>
+              <h4>Direct Access to Builders</h4>
+              <p>
+                [Placeholder] You talk to the people actually writing the code —
+                no layers in between.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- READY TO BUILD SOFTWARE -->
+      <section class="wrap" style="padding: 24px 0 64px">
+        <div class="final-cta">
+          <h2>Not sure which service you need?</h2>
+          <p>
+            [Placeholder] Tell us about your project and we'll point you to the
+            right solution — even if it's a mix of a few.
+          </p>
+          <a href="contact.html#lead-form" class="btn-white"
+            >Get a Free Quote →</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        function wireRevealGrid(grid) {
+          if (!grid) return;
+          var cards = Array.from(grid.querySelectorAll(".reveal"));
+          if (!cards.length) return;
+
+          function playReveal() {
+            var columns =
+              getComputedStyle(grid).gridTemplateColumns.split(" ").length;
+            var withinRowDelay = 110;
+            var rowPause = 220;
+            var rowDuration = columns * withinRowDelay + rowPause;
+
+            cards.forEach(function (card, i) {
+              card.classList.remove("is-visible");
+              void card.offsetWidth;
+              var row = Math.floor(i / columns);
+              var col = i % columns;
+              var delay = row * rowDuration + col * withinRowDelay;
+              setTimeout(function () {
+                card.classList.add("is-visible");
+              }, delay);
+            });
+          }
+
+          var gridObserver = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  playReveal();
+                } else {
+                  cards.forEach(function (card) {
+                    card.classList.remove("is-visible");
+                  });
+                }
+              });
+            },
+            { threshold: 0.25 },
+          );
+
+          gridObserver.observe(grid);
+        }
+
+        function wireRevealSequence(container, stepDelay) {
+          if (!container) return;
+          var items = Array.from(container.querySelectorAll(".reveal"));
+          if (!items.length) return;
+          stepDelay = stepDelay || 180;
+
+          function playSequence() {
+            items.forEach(function (item, i) {
+              item.classList.remove("is-visible");
+              void item.offsetWidth;
+              setTimeout(function () {
+                item.classList.add("is-visible");
+              }, i * stepDelay);
+            });
+          }
+
+          var observer = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  playSequence();
+                } else {
+                  items.forEach(function (item) {
+                    item.classList.remove("is-visible");
+                  });
+                }
+              });
+            },
+            { threshold: 0.4 },
+          );
+
+          observer.observe(container);
+        }
+
+        wireRevealGrid(document.querySelector(".services-grid"));
+        wireRevealGrid(document.querySelector(".why-grid"));
+
+        document.querySelectorAll(".heading-group").forEach(function (group) {
+          wireRevealSequence(group, 180);
+        });
+      });
+    </script>
+  </body>
+</html>
